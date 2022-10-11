@@ -6,7 +6,6 @@ import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Parameterized.class)
 public class IngredientTest {
     private final IngredientType type = IngredientType.SAUCE;
     private final String name = "Горные травы";
