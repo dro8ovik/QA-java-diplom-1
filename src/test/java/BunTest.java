@@ -8,9 +8,13 @@ public class BunTest {
     private final float price = 100f;
 
     @Test
-    public void createBun(){
+    public void setNameCreateBun(){
         Bun bun = new Bun(name, price);
         assertEquals(name, bun.getName());
+    }
+
+    public void setPriceCreateBun(){
+        Bun bun = new Bun(name, price);
         assertEquals(price, bun.getPrice(), 0.0);
     }
 }

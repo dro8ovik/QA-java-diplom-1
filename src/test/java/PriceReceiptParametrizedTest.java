@@ -5,10 +5,7 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
+import praktikum.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,14 +18,19 @@ public class PriceReceiptParametrizedTest {
     @Mock
     Ingredient secondIngredient;
 
-    private final String bunName = "Вкусная булка";
-    private final float bunPrice = 100f;
-    private final IngredientType firstIngredientType = IngredientType.SAUCE;
-    private final String firstIngredientName = "Горные травы";
-    private final float firstIngredientPrice = 40f;
-    private final IngredientType secondIngredientType = IngredientType.FILLING;
-    private final String secondIngredientName = "Мясо муравьев";
-    private final float secondIngredientPrice = 60f;
+    private final Database database = new Database();
+    private final Bun testBuns = database.availableBuns().get(0);
+    private final Ingredient testFirstIngredient = database.availableIngredients().get(0);
+    private final Ingredient testSecondIngredient = database.availableIngredients().get(1);
+
+    private final String bunName = testBuns.getName();
+    private final float bunPrice = testBuns.getPrice();
+    private final IngredientType firstIngredientType = testFirstIngredient.getType();
+    private final String firstIngredientName = testFirstIngredient.getName();
+    private final float firstIngredientPrice = testFirstIngredient.getPrice();
+    private final IngredientType secondIngredientType = testSecondIngredient.getType();
+    private final String secondIngredientName = testSecondIngredient.getName();
+    private final float secondIngredientPrice = testSecondIngredient.getPrice();
     private final int ingredientsQty;
     private Burger burger;
 
